@@ -1,0 +1,27 @@
+name: suraci 3
+
+on:
+  schedule:
+    # Se ejecuta a las 00:00 UTC cada 15 días
+    - cron: '0 0 */15 * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout del repositorio
+      uses: actions/checkout@v2
+
+    - name: Configurar Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11.4' 
+
+    - name: Instalar dependencias
+      run: |
+        pip install selenium pandas numpy gspread undetected_chromedriver webdriver_manager seleniumbase
+
+    - name: Ejecutar script
+      run: s3.py 
