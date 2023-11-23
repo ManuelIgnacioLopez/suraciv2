@@ -17,11 +17,12 @@ jobs:
     - name: Configurar Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.11.4' 
+        python-version: '3.11' # Asegúrate de que esto coincida con la versión de Python que necesitas
 
     - name: Instalar dependencias
       run: |
-        pip install selenium pandas numpy gspread undetected_chromedriver webdriver_manager seleniumbase
+         pip install selenium pandas numpy gspread undetected_chromedriver webdriver_manager seleniumbase
 
     - name: Ejecutar script
-      run: s3.py 
+      run: python s3.py # Usa python o python3 según corresponda
+
