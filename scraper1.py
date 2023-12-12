@@ -13,12 +13,15 @@ import numpy as np
 
 # Configure Chrome options
 chrome_options = Options()
-chrome_options.add_argument("--headless") # Runs Chrome in headless mode.
-chrome_options.add_argument("--no-sandbox") # Bypass OS security model
-chrome_options.add_argument("--disable-dev-shm-usage") # Overcome limited resource problems
+chrome_options.add_argument("--headless")  # Runs Chrome in headless mode.
+chrome_options.add_argument("--no-sandbox")  # Bypass OS security model.
+chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource problems.
+
+# Get ChromeDriver path
+chrome_driver_path = ChromeDriverManager().install()
 
 # Initialize ChromeDriver using webdriver-manager
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install(), options=chrome_options))
+driver = webdriver.Chrome(service=Service(chrome_driver_path), options=chrome_options)
 
 urls=['https://negozona.com/anuncios/Busqueda/Todos/State-11-Mendoza/Alimentos-y-Bebidas/Todos/Todos/Todos/Todos/0,100000+?order_by_field=',
       'https://negozona.com/anuncios/Busqueda/Todos/State-11-Mendoza/Animales-y-Agro/Todos/Todos/Todos/Todos/0,100000+?order_by_field=',
