@@ -9,7 +9,7 @@ import numpy as np
 
 # Inicialización de las opciones de Chrome
 chrome_options = Options()
-#chrome_options.add_argument()
+chrome_options.add_argument('headless')
 
 
 #chromedriver
