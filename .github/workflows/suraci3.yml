@@ -26,7 +26,7 @@ jobs:
     - name: Install Dependencies
       run: |
         pip install setuptools
-        pip install selenium pandas numpy gspread webdriver-manager undetected-chromedriver
+        pip install selenium pandas numpy gspread webdriver-manager seleniumbase undetected-chromedriver
         # Add any other dependencies your script needs
 
     - name: Run Scraper Script
