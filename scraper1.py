@@ -4,21 +4,21 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 import time
 import pandas as pd
 import gspread
 import numpy as np
 
-# Inicialización de las opciones de Chrome
+
+# Configure Chrome options
 chrome_options = Options()
-chrome_options.add_argument('headless')
+chrome_options.add_argument("--headless") # Runs Chrome in headless mode.
+chrome_options.add_argument("--no-sandbox") # Bypass OS security model
+chrome_options.add_argument("--disable-dev-shm-usage") # Overcome limited resource problems
 
-
-#chromedriver
-from selenium.webdriver.chrome.service import Service
-from selenium import webdriver
-
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+# Initialize ChromeDriver using webdriver-manager
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
 
 urls=['https://negozona.com/anuncios/Busqueda/Todos/State-11-Mendoza/Alimentos-y-Bebidas/Todos/Todos/Todos/Todos/0,100000+?order_by_field=',
       'https://negozona.com/anuncios/Busqueda/Todos/State-11-Mendoza/Animales-y-Agro/Todos/Todos/Todos/Todos/0,100000+?order_by_field=',
