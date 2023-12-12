@@ -16,8 +16,7 @@ chrome_options.add_argument('headless')
 from selenium.webdriver.chrome.service import Service
 from selenium import webdriver
 
-s = Service('/Users/milb/Desktop/python/chromedriver')
-driver = webdriver.Chrome(service=s)
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
 urls=['https://negozona.com/anuncios/Busqueda/Todos/State-11-Mendoza/Alimentos-y-Bebidas/Todos/Todos/Todos/Todos/0,100000+?order_by_field=',
       'https://negozona.com/anuncios/Busqueda/Todos/State-11-Mendoza/Animales-y-Agro/Todos/Todos/Todos/Todos/0,100000+?order_by_field=',
