@@ -118,19 +118,21 @@ dolarz=False
 exit=0
 while dolarz==False:
   try:
-    if exit==5:
-         dolarz=True
-    exit=exit+1
+    if exitWhile == 5:
+       dollar = "Error"
+       break
     driver.get('https://www.cronista.com/MercadosOnline/moneda.html?id=ARSB')
     ele = driver.find_element(By.XPATH,'//*[@id="market-scrll-1"]/tbody/tr/td[2]/a/div/div[2]')
     dollar=ele.text
     dollar= dollar.replace('$', '')
-    #dollar= dollar.replace('.', '')
+    dollar= dollar.replace('.', '')
     dollar= dollar.replace(',', '.')
     dollar= float(dollar)
     dolarz=True
   except:
     dolarz=False
+  finally:
+    exitWhile += 1
 pesos=[]
 for i in precio_zp:
      try:
