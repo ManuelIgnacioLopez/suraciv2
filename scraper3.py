@@ -95,14 +95,16 @@ for url in url_zp:
                         ubicacionElement = driver.find_element(By.CLASS_NAME,"title-location")
                         mtsElement = driver.find_element(By.CLASS_NAME,"section-icon-features")
                         elementFound = True
-                        it +=1
-                except:
+                        
+                except Exception as e:
+                        print(e)
                         pass
                         precio_zp.append(None)
                         ubicacion_zp.append(None)
                         metros2_zp.append(None)
-                    
-                        
+                finally:
+                        it +=1
+            
         precio_zp.append(precioElement.text)
         ubicacion_zp.append(ubicacionElement.text)
         metros2_zp.append(mtsElement.text)
@@ -115,7 +117,7 @@ print("var metros2_zp:")
 print(metros2_zp)
 
 dolarz=False
-exit=0
+exitWhile=0
 while dolarz==False:
   try:
     if exitWhile == 5:
