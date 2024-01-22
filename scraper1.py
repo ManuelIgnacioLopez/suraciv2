@@ -83,7 +83,7 @@ while dolarz==False:
     ele = driver.find_element(By.XPATH,'//*[@id="market-scrll-1"]/tbody/tr/td[2]/a/div/div[2]')
     dollar=ele.text
     dollar= dollar.replace('$', '')
-    #dollar= dollar.replace('.', '')
+    dollar= dollar.replace('.', '')
     dollar= dollar.replace(',', '.')
     dollar= float(dollar)
     dolarz=True
